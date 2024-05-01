@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+## Here is the Probelem Statement fo HackerRank React Interview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create a basic navigation application , as shown below. Some core functionalities have already been implemented, but the application is not complete. Application requirements are given below, and the finished application must pass all of the unit tests.
 
-## Available Scripts
+The app has one component: the Navigation view. The list of locations to be displayed is already provided in the app.
 
-In the project directory, you can run:
+The app should implement the following functionalities:
 
-### `npm start`
+The locations should be initially displayed in their respective < li > tags in the same order in which they are provided.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Each location can have one or two icon buttons, depending upon its position in the list:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The first location should only have the Move Down icon button
 
-### `npm test`
+The last location should only have the Move Up icon button
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+All the other Jocations should have both the Move Up and the Move Down buttons
 
-### `npm run build`
+Clicking on the Move Down button should move the location down by one position in the list.
+Similarly, clicking the Move Up button should move the location up try one position in the list.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When a location is moved either up or down, it should exchange its position with the location positioned just above (if moving up) or below (if moving down).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+PROBLEMS OUTPUT
+The list of locations is passed as props to the Navigation component
+The locations lists an array of strings, with each item representing a location in the list.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The locations list is an array of strings, with each item representing a location in the list.
 
-### `npm run eject`
+Note: The utility function is last is provided to help with determining if the current location is the last item in the list. Also, the function getClasses is present in the template to aid in rendering. Please do not modify this function.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The following data-testid/class attributes are required in the component for the tests to pass:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The parent container of the location list <ul> should have the data-testid attribute 'location-list"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Each location item in the list should have the data-testid
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+attribute location-0', 'location-1', 'location-2, and so on.
 
-## Learn More
+Each location name paragraph tag <p> should have the data-testid attribute "location"
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Each Move Up button should have the data-testid attribute up-button
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each Move Down button should have the data-testid attribute 'down-button
 
-### Code Splitting
+Please note that the component has the above data-testid attributes for test cases and certain classes and ids for rendering purposes. It is advised not to change them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Learnings
 
-### Analyzing the Bundle Size
+This assignment touches upon several fundamental concepts in React. Here are the main ones:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Props: Understanding how to pass data from a parent component to a child component using props is fundamental in React. In this assignment, you pass the locations data from the App component to the Navigation component as a prop.
+   State: Managing component state is another core concept. In the Navigation component, you use the useState hook to manage the state of the locations array. When a location is moved up or down, the state is updated accordingly, triggering a re-render of the component.
+2. Handling Events: React components can respond to user interactions by handling events. In this assignment, you handle the click events of the "Move Up" and "Move Down" buttons by defining event handler functions (moveUpward and moveDownward) and attaching them to the respective buttons.
+3. Conditional Rendering: Sometimes, you need to conditionally render certain parts of a component based on certain conditions. In this assignment, you conditionally render the "Move Up" and "Move Down" buttons based on the position of each location in the list.
+4. Key Prop in Lists: When rendering dynamic lists in React, each list item should have a unique key prop. This helps React identify which items have changed, been added, or been removed, improving performance and avoiding issues with component reordering.
